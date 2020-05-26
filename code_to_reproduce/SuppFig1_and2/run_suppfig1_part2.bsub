@@ -1,0 +1,11 @@
+#!/bin/bash
+#BSUB -n 1                # Each job runs on 1 core
+#BSUB -W 11:50            # Each job should finish in under 12 hours
+#BSUB -J suppfig1_part2.[1-600]  
+#BSUB -o suppfig1_part2.lsf.out
+#BSUB -e suppfig1_part2.lsf.err
+#BSUB -q short				# You will need to change this value to the name of the queue used by your system. 
+
+Snum=2
+
+Rscript gen_data_suppfig1.R ${LSB_JOBINDEX} $Snum >suppfig1_part2.${Snum}.${LSB_JOBINDEX}.out

@@ -1,0 +1,47 @@
+Requirements to reproduce Table 1:
+
+(a) You will need to have installed the following R libraries on your computing platform:
+GBJ, SKAT, mvtnorm, data.table.
+
+(b) You will need the HAPGEN2 binary (download at 
+http://mathgen.stats.ox.ac.uk/genetics_software/hapgen/hapgen2.html) in your working directory.
+
+(c) You will need reference data from the HapMap3 project 
+(download at https://mathgen.stats.ox.ac.uk/impute/data_download_hapmap3_r2.html) in your 
+working directory. Specifically, you will need the chromosome 5 files 'hapmap3.r2.b36.chr5.legend', 
+'genetic_map_chr5_combined_b36.txt', and 'CEU.chr5.hap'. 
+
+(d) You will also need the chromosome 10
+files hapmap3.r2.b36.chr10.legend', 'genetic_map_chr10_combined_b36.txt', and 'CEU.chr10.hap'.
+
+(e) You will need to put the 'glist-hg18.txt' file included in this folder in your working directory.
+
+(f) You will need access to a computing cluster.  We provide job submission scripts for 
+LSF (bsub extension) and SLURM (sbatch extension) environments. You may need
+to edit these scripts slightly to ensure that relevant parameters (number of cores, 
+amount of time requested, etc.) are in line with your computing facility rules. In 
+particular, you will need to edit the queue name (the string after '-q' flag) to reflect
+the actual name of your partition.
+
+(g) Once you have verified that all the above requirements are met, open all files with a 
+.R extension and edit the first line of executable code to set library/data file paths 
+as directed by the comments.  These will tell R where to load your libraries and find
+the data files.
+
+
+Workflow to reproduce Table 1:
+
+(1) From the command line of your cluster computing environment, type
+either 'bsub <run_tab1_part1.bsub' or 'sbatch run_tab1_part1.sbatch' and
+press ENTER.
+
+(2) Then type either 'bsub <run_tab1_part2.bsub' or 'sbatch run_tab1_part2.sbatch' and
+press ENTER.
+
+(3) Run gen_data_tab1_part3.R from within an R console.
+
+(4) Once all the jobs from steps (1), (2), and (3) have finished, run make_tab1.R from within an R console.
+A very close approximation of the results from Table 1 will be stored in the variables results_tab1, 
+results_tab2, and results_tab3 (not a perfect reproduction because we cannot control the random number
+generator of HAPGEN - it sets a seed according to the time of day).
+

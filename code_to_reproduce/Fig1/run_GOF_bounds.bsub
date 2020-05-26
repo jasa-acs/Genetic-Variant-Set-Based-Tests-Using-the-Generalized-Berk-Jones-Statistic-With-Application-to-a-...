@@ -1,0 +1,12 @@
+#!/bin/bash
+#BSUB -n 1                # Each job runs on 1 core
+#BSUB -W 11:50            # Each job should finish in under 12 hours
+#BSUB -J GOF_bounds.[3-21]  # This job array will produce all the data for Fig 1, as well as some extra files.
+#BSUB -o GOF_bounds.lsf.out
+#BSUB -e GOF_bounds.lsf.err
+#BSUB -q short				# You will need to change this value to the name of the queue used by your system. 
+
+# The Snum is not used here, but we leave it for the sake of completeness because the other scripts require it.
+Snum=1
+
+Rscript gen_data_fig1.R ${LSB_JOBINDEX} $Snum >GOF_bound_finder.${Snum}.${LSB_JOBINDEX}.out

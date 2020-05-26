@@ -1,0 +1,12 @@
+#!/bin/bash
+#BSUB -n 1                # Each job runs on 1 core
+#BSUB -W 12:00            # Each job should finish in under 12 hours
+#BSUB -J supptab4_part1.[1-50]  # Must use a 50 job array to get all the data
+#BSUB -o supptab4_part1.lsf.out
+#BSUB -e supptab4_part1.lsf.err
+#BSUB -q short				# You will need to change this value to the name of the queue used by your system. 
+
+# The Snum correspond to the four distinct situations presented in the manuscript.
+Snum=1
+
+Rscript gen_sim_data_supptab4.R ${LSB_JOBINDEX} $Snum >supptab4_part1.${Snum}.${LSB_JOBINDEX}.out

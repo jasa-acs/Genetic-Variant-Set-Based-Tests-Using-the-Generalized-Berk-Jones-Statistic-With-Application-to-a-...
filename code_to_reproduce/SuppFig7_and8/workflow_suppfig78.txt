@@ -1,0 +1,22 @@
+Requirements to reproduce Supplementary Figures 7 and 8:
+
+(a) You will need to have installed the following R libraries on your computing platform:
+dplyr, data.table.
+
+(b) You will need all the output from gen_data_tab2.R (run on the original data). If you do 
+not have access to the original data, unfortunately you will not be able to reproduce our QQ-plots.
+
+(c) Once you have verified that all the above requirements are met, open all files with a 
+.R extension and edit the first line of executable code to set library/data file paths 
+as directed by the comments.  These will tell R where to load your libraries and find
+the data files.
+
+
+Workflow to reproduce Supplementary Figures 7 and 8:
+
+(1) Run plot_suppfig78.R from within an R console.
+
+This will reproduce Supplementary Figures 7 and 8 IF you have the original data.
+
+
+

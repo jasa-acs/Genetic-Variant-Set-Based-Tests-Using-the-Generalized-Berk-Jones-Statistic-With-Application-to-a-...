@@ -1,0 +1,29 @@
+Requirements to reproduce Supplementary Tables 3 and 4:
+
+(a) You will need to have installed the following R libraries on your computing platform:
+GBJ, SKAT, mvtnorm, bindata, data.table, dyplr.
+
+(b) You will need access to a computing cluster.  We provide job submission scripts for 
+LSF (bsub extension) and SLURM (sbatch extension) environments. You may need
+to edit these scripts slightly to ensure that relevant parameters (number of cores, 
+amount of time requested, etc.) are in line with your computing facility rules. In 
+particular, you will need to edit the queue name (the string after '-q' flag) to reflect
+the actual name of your partition.
+
+(c) Once you have verified that all the above requirements are met, open all files with a 
+.R extension and edit the first line of executable code to set library/data file paths 
+as directed by the comments.  These will tell R where to load your libraries and find
+the data files.
+
+
+Workflow to reproduce Supplementary Tables 3 and 4.
+
+(1) From the command line of your cluster computing environment, type
+either 'bsub <run_suppfig3_part1.bsub' or 'sbatch run_suppfig3_part1.sbatch' (without the quotes)
+and press ENTER.
+
+(2) Repeat step (1) with the .bsub/.sbatch scripts marked parts 2-4 and also those starting with run_suppfig4.
+
+(3) Once all the jobs from steps (1)-(2) have finished, run make_supptab34.R from within an R console.
+
+This will reproduce all the plots from Supplementary Tables 3 and 4.

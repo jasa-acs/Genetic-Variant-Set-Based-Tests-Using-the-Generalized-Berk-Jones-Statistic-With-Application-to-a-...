@@ -1,0 +1,44 @@
+Requirements to reproduce Supplementary Table 5:
+
+(a) You will need to have installed the following R libraries on your computing platform:
+GBJ, dplyr, magrittr, data.table.
+
+(b) You will need the PLINK 1.90 binary (download at https://www.cog-genomics.org/plink2) in your working directory.
+
+(c) You will need restricted access data from the CGEMS GWAS. The link to this study is:
+https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000147.v1.p1.
+We assume you have the genotype data in PLINK binary format and have named it 'cgems_genotypes'
+(along with the standard bed/bim/fam extensions). 
+
+(d) You will also need the CGEMS covariates, which are also obtained through dbGaP.
+We assume you have called this file 'fake_cgems_covar.txt.'
+
+(e) You will need the file 'glist-hg18.txt,' which defines the location of genes in build hg18
+of the human genome. It is attached with the code.
+
+(f) You will need 1000 Genomes Project genotypes for our ten top genes. These are 20 files in all with extensions
+".ped" and ".map."  They are attached with the code.
+
+(g) You will need precalculated 1000 Genomes Project principal components. These are in the file 
+"PCs_1000G_Euro.txt" that is attached with the code.
+
+(h) You will need access to a computing cluster.  We provide job submission scripts for 
+LSF (bsub extension) and SLURM (sbatch extension) environments. You may need
+to edit these scripts slightly to ensure that relevant parameters (number of cores, 
+amount of time requested, etc.) are in line with your computing facility rules. In 
+particular, you will need to edit the queue name (the string after '-q' flag) to reflect
+the actual name of your partition.
+
+(u) Once you have verified that all the above requirements are met, open all files with a 
+.R extension and edit the first line of executable code to set library/data file paths 
+as directed by the comments.  These will tell R where to load your libraries and find
+the data files.
+
+
+Workflow to reproduce Supplementary Table 5:
+
+(1) Run make_supptab5.R from within an R console.
+
+This will reproduce Supplementary Table 5.
+
+

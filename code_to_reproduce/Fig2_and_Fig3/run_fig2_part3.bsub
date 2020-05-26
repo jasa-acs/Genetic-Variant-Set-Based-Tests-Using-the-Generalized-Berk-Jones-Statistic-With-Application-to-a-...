@@ -1,0 +1,12 @@
+#!/bin/bash
+#BSUB -n 1                # Each job runs on 1 core
+#BSUB -W 48:00            # Each job should finish in under 48 hours
+#BSUB -J fig2_part3.[1-50]  # Must use a 50 job array to get all the data
+#BSUB -o fig2_part3.lsf.out
+#BSUB -e fig2_part3.lsf.err
+#BSUB -q short				# You will need to change this value to the name of the queue used by your system. 
+
+# The Snum correspond to the four distinct situations presented in the manuscript.
+Snum=6
+
+Rscript gen_sim_data_fig2.R ${LSB_JOBINDEX} $Snum >fig2_part3.${Snum}.${LSB_JOBINDEX}.out

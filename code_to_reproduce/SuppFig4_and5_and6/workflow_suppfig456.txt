@@ -1,0 +1,41 @@
+Requirements to reproduce Supplementary Figures 4,5,6:
+
+(a) You will need to have installed the following R libraries on your computing platform:
+GBJ, SKAT, mvtnorm, data.table.
+
+(b) You will need the HAPGEN2 binary (download at 
+http://mathgen.stats.ox.ac.uk/genetics_software/hapgen/hapgen2.html) in your working directory.
+
+(c) You will need reference data from the HapMap3 project 
+(download at https://mathgen.stats.ox.ac.uk/impute/data_download_hapmap3_r2.html) in your 
+working directory. Specifically, you will need 'hapmap3.r2.b36.chr5.legend', 
+'genetic_map_chr5_combined_b36.txt', and 'CEU.chr5.hap' from the HapMap3 files.
+
+(d) You will need access to a computing cluster.  We provide job submission scripts for 
+LSF (bsub extension) and SLURM (sbatch extension) environments. You may need
+to edit these scripts slightly to ensure that relevant parameters (number of cores, 
+amount of time requested, etc.) are in line with your computing facility rules. In 
+particular, you will need to edit the queue name (the string after '-q' flag) to reflect
+the actual name of your partition.
+
+(e) Once you have verified that all the above requirements are met, open all files with a 
+.R extension and edit the first line of executable code to set library/data file paths 
+as directed by the comments.  These will tell R where to load your libraries and find
+the data files.
+
+
+Workflow to reproduce Supplementary Figures 4,5,6:
+
+(1) From the command line of your cluster computing environment, type
+either 'bsub <run_suppfig4.bsub' or 'sbatch run_suppfig4.sbatch' (without the quotes)
+and press ENTER.
+
+(2) Repeat step (1) with the run_suppfig5 and run_suppfig6 files.
+
+(3) Once all the jobs from steps (1) and (2) have finished, run plot_suppfig456.R from within an R console.
+
+This will produce a very close approximation of Supplementary Figures 4,5,6 (not a perfect reproduction because we 
+cannot control the random number generator of HAPGEN - it sets a seed according to the time of day).
+
+
+

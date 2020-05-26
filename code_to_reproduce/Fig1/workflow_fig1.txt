@@ -1,0 +1,36 @@
+Requirements to reproduce Figure 1:
+
+(a) You will need to have installed the 'GBJ' R library on your computing platform.
+
+(b) You will need the Boost C++ libraries. Download them at 
+http: //www.boost.org/users/history/version_1_65_1.html and unzip the files.
+
+(c) You will need a C++ binary for calculating supremum-based global test p-values.
+The ebb_crossprob_cor.cpp file and associated Makefile are attached.
+Put them in your working directory, which is the directory  where you will be running all your commands.  
+Open the Makefile and change the second line to point at the directory that holds the 'boost' folder
+unzipped in part (b).
+Navigate to the working directory on the command line, type 'make' without the quotation marks, and press ENTER.
+
+(c) You will need access to a computing cluster.  We provide job submission scripts for 
+LSF (bsub extension) and SLURM (sbatch extension) environments. You may need
+to edit these scripts slightly to ensure that relevant parameters (number of cores, 
+amount of time requested, etc.) are in line with your computing facility rules. In 
+particular, you will need to edit the queue name (the string after '-q' flag) to reflect
+the actual name of your partition.
+
+(d) Once you have verified that all the above requirements are met, open all files with a 
+.R extension and edit the first line of executable code to set library/data file paths 
+as directed by the comments.  These will tell R where to load your libraries and find
+the data files.
+
+
+Workflow to reproduce Figure 1:
+
+(1) From the command line of your cluster computing environment, type
+ either 'bsub <run_GOF_bounds.bsub' or 'sbatch run_GOF_bounds.sbatch' (without the quotes)
+and press ENTER.
+
+(2) Once all the jobs from step (1) have finished, run plot_fig1.R from within an R console.
+
+This will reproduce all the plots from Fig 1.

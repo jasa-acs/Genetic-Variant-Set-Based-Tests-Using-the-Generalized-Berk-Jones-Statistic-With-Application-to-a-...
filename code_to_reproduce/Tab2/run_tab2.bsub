@@ -1,0 +1,12 @@
+#!/bin/bash
+#BSUB -n 1                # Each job runs on 1 core
+#BSUB -W 100:00            # Each job should finish in under 100 hours
+#BSUB -J tab2.[1-181]  # Must use a 181 job array to get all the data
+#BSUB -o tab2.lsf.out
+#BSUB -e tab2.lsf.err
+#BSUB -q short				# You will need to change this value to the name of the queue used by your system. 
+
+# Snum not used here, but left for consistency with other plots.
+Snum=1
+
+Rscript gen_tab2.R ${LSB_JOBINDEX} $Snum >tab2.${Snum}.${LSB_JOBINDEX}.out

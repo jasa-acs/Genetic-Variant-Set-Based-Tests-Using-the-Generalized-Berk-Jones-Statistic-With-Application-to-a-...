@@ -1,0 +1,16 @@
+Requirements to reproduce Supplementary Figure 3:
+
+(a) You will need to have installed the dplyr R library on your computing platform.
+
+(b) You will need to have completed all the steps necessary to reproduce Figure 1.
+
+(c) Once you have verified that all the above requirements are met, open all files with a 
+.R extension and edit the first line of executable code to set library/data file paths 
+as directed by the comments.  These will tell R where to load your libraries and find
+the data files.
+
+Workflow to reproduce Supplementary Figure 3:
+
+(1) Run plot_suppfig3.R from within an R console.
+
+This will reproduce all the plots from Supplementary Figure 3.

@@ -1,0 +1,12 @@
+#!/bin/bash
+#BSUB -n 1                # Each job runs on 1 core
+#BSUB -W 24:00            # Each job should finish in under 24 hours
+#BSUB -J suppfig4.[1-40]  # Must use a 40 job array to get all the data
+#BSUB -o suppfig4.lsf.out
+#BSUB -e suppfig4.lsf.err
+#BSUB -q short				# You will need to change this value to the name of the queue used by your system. 
+
+# Snum not used here, but left for consistency with other plots.
+Snum=1
+
+Rscript gen_data_suppfig456.R ${LSB_JOBINDEX} $Snum >suppfig4.${Snum}.${LSB_JOBINDEX}.out
